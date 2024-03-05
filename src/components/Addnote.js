@@ -33,7 +33,7 @@ const Addnote = () => {
           </div>
         </div>
         <div className="col-12">
-          <button type="submit" className="btn btn-primary" onClick={handleClick}>submit</button>
+          <button type="submit" className="btn btn-primary" onClick={handleClick}>Add note</button>
         </div>
       </form>
     </div>

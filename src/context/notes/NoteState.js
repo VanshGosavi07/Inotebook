@@ -40,7 +40,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "65d2f72afe851bb3cec80d59",
+      "_id": "65d2f72afe851bb3cec80d519",
       "user": "65c43dbb4c9f27d58fc4a4b4",
       "title": "my title 1",
       "description": "Please wake up early",
@@ -50,7 +50,7 @@ const NoteState = (props) => {
     },
     {
       "_id": "65d2f812fcd66df7cc4f1534",
-      "user": "65c43dbb4c9f27d58fc4a4b4",
+      "user": "65c43dbb4c9f27d58fc42a4b4",
       "title": "my title 2",
       "description": "Please wake up early",
       "tag": "personal",
@@ -58,7 +58,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "65d4bd2f5fbcb78d70125bf3",
+      "_id": "65d4bd2f5fbcb178d70125bf3",
       "user": "65c43dbb4c9f27d58fc4a4b4",
       "title": "my title 3",
       "description": "Please wake up early",
@@ -67,7 +67,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "65d4be41ab5c123247c8bb33",
+      "_id": "65d4be41ab57c123247c8bb33",
       "user": "65c43dbb4c9f27d58fc4a4b4",
       "title": "my title hain na",
       "description": "Please wake up early",
@@ -76,7 +76,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "65d2f72afe851bb3cec80d59",
+      "_id": "65d2f72af9e851bb3cec80d59",
       "user": "65c43dbb4c9f27d58fc4a4b4",
       "title": "my title 1",
       "description": "Please wake up early",
@@ -85,7 +85,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "65d2f812fcd66df7cc4f1534",
+      "_id": "65d2f81562fcd66df7cc4f1534",
       "user": "65c43dbb4c9f27d58fc4a4b4",
       "title": "my title 2",
       "description": "Please wake up early",
@@ -94,7 +94,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "65d4bd2f5fbcb78d70125bf3",
+      "_id": "65d445bd2f5fbcb78d70125bf3",
       "user": "65c43dbb4c9f27d58fc4a4b4",
       "title": "my title 3",
       "description": "Please wake up early",
@@ -103,7 +103,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "65d4be41ab5c123247c8bb33",
+      "_id": "65d4be41ab5c12324567c8bb33",
       "user": "65c43dbb4c9f27d58fc4a4b4",
       "title": "my title hain na",
       "description": "Please wake up early",
@@ -112,7 +112,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "65d2f72afe851bb3cec80d59",
+      "_id": "65d2f72afe85891bb3cec80d59",
       "user": "65c43dbb4c9f27d58fc4a4b4",
       "title": "my title 1",
       "description": "Please wake up early",
@@ -121,7 +121,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "65d2f812fcd66df7cc4f1534",
+      "_id": "65d2f81299fcd66df7cc4f1534",
       "user": "65c43dbb4c9f27d58fc4a4b4",
       "title": "my title 2",
       "description": "Please wake up early",
@@ -130,7 +130,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "65d4bd2f5fbcb78d70125bf3",
+      "_id": "65d4bd2f589fbcb78d70125bf3",
       "user": "65c43dbb4c9f27d58fc4a4b4",
       "title": "my title 3",
       "description": "Please wake up early",
@@ -139,7 +139,7 @@ const NoteState = (props) => {
       "__v": 0
     },
     {
-      "_id": "65d4be41ab5c123247c8bb33",
+      "_id": "65d4be7641ab5c123247c8bb33",
       "user": "65c43dbb4c9f27d58fc4a4b4",
       "title": "my title hain na",
       "description": "Please wake up early",
@@ -166,8 +166,11 @@ const NoteState = (props) => {
     setNotes(notes.concat(note))
   }
   //Delete a note
-  const deleteNote = () => {
-
+  const deleteNote = (id) => {
+    //todo api call
+    console.log("note deleted", id)
+    const newnotes=notes.filter((note)=>{return note._id!==id})
+    setNotes(newnotes);
   }
 
   //Edit a note
