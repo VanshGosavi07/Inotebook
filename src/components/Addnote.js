@@ -24,16 +24,14 @@ const Addnote = () => {
           <label htmlFor="description" className="form-label">Description</label>
           <input type="text" className="form-control" name='description' id="description" onChange={onChange} />
         </div>
-        <div className="col-12">
-          <div className="form-check">
-            <input className="form-check-input" type="checkbox" id="gridCheck" />
-            <label className="form-check-label" htmlFor="gridCheck">
-              Check me out
-            </label>
-          </div>
+        <div className="col-md-6 ">
+          <label htmlFor="tag" className="form-label">Tag</label>
+          <input type="text" className="form-control" name='tag' id="tag" onChange={onChange} />
         </div>
         <div className="col-12">
-          <button type="submit" className="btn btn-primary" onClick={handleClick}>Add note</button>
+        </div>
+        <div className="col-12">
+          <button type="submit" className="btn btn-primary my-5" onClick={handleClick}>Add note</button>
         </div>
       </form>
     </div>
