@@ -1,27 +1,29 @@
-import React, { useContext, useRef,useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import noteContext from '../context/notes/noteContext';
 import Noteitem from './Noteitem';
 import Addnote from './Addnote';
 import { useEffect } from 'react';
 const Notes = () => {
   const context = useContext(noteContext)
-  const { notes, getNotes } = context;
+  const { notes, getNotes, editNote } = context;
   useEffect(() => {
     getNotes()
     // eslint-disable-next-line
   }, [])
   const ref = useRef(null)
-
+  const refclose = useRef(null)
   const updateNote = (currentNote) => {
     ref.current.click();
-    setNote({etitle:currentNote.title, edescription:currentNote.description, etag:currentNote.tag})
+    setNote({ id: currentNote._id, etitle: currentNote.title, edescription: currentNote.description, etag: currentNote.tag })
   }
   const string = "____________"
 
-  const [note, setNote] = useState({ etitle: "", edescription: "", etag: "" })
+  const [note, setNote] = useState({ id: "", etitle: "", edescription: "", etag: "" })
+
   const handleClick = (e) => {
-    console.log("updating notes",note)
-    e.preventDefault();
+    console.log("updating notes", note)
+    editNote(note.id, note.etitle, note.edescription, note.etag)
+    refclose.current.click();
   }
   const onChange = (e) => {
     setNote({ ...note, [e.target.name]: e.target.value })
@@ -53,14 +55,14 @@ const Notes = () => {
                 </div>
                 <div className="col-md-6 ">
                   <label htmlFor="tag" className="form-label">Tag</label>
-                  <input type="text" className="form-control" name='etag'value={note.etag} id="etag" onChange={onChange} />
+                  <input type="text" className="form-control" name='etag' value={note.etag} id="etag" onChange={onChange} />
                 </div>
                 <div className="col-12">
                 </div>
               </form>
             </div>
             <div className="modal-footer">
-              <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" ref={refclose} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="button" onClick={handleClick} className="btn btn-primary">Update Notes</button>
             </div>
           </div>
