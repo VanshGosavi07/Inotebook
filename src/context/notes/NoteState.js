@@ -1,6 +1,6 @@
 import { useState } from "react";
 import NoteContext from "./noteContext";
-import { json } from "react-router-dom";
+
 
 const NoteState = (props) => {
   const host = "http://localhost:5000"
@@ -19,7 +19,7 @@ const NoteState = (props) => {
       }
     });
     const json = await response.json()
-    console.log(json)
+
     setNotes(json)
   }
   //Add a note
@@ -35,18 +35,7 @@ const NoteState = (props) => {
       body: JSON.stringify({ title, description, tag }),
     });
 
-    const json = await response.json()
-    console.log(json)
-    console.log("adding a new note")
-    const note = {
-      "_id": "65d4be41ab5c123247c8bb331",
-      "user": "65c43dbb4c9f27d58fc4a4b4z",
-      "title": title,
-      "description": description,
-      "tag": tag,
-      "date": "2024-02-20T14:59:13.722Z",
-      "__v": 0
-    }
+    const note = await response.json()
     setNotes(notes.concat(note))
   }
   //Delete a note
@@ -61,8 +50,7 @@ const NoteState = (props) => {
       },
     });
     const jason = response.json();
-    console.log(jason)
-    console.log("note deleted", id)
+
     const newnotes = notes.filter((note) => { return note._id !== id })
     setNotes(newnotes);
   }
@@ -80,7 +68,7 @@ const NoteState = (props) => {
       body: JSON.stringify({ title, description, tag }),
     });
     const json = await response.json();
-    console.log(json)
+
 
     let newNotes = JSON.parse(JSON.stringify(notes))
     //logic to edit in client
